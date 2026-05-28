@@ -1,62 +1,29 @@
 package com.iromedes.financeiro.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*; // Importante para as travas
+import lombok.*;
 import java.time.LocalDate;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Transacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "O tipo é obrigatório")
     private String tipo;
+
+    @NotNull(message = "O valor é obrigatório")
+    @Positive(message = "O valor deve ser positivo")
     private Double valor;
+
     private String descricao;
+
+    @NotNull(message = "A data é obrigatória")
     private LocalDate data;
-
-    // Construtores
-    public Transacao() {
-    }
-
-    // Getters e Setters
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public Double getValor() {
-        return valor;
-    }
-
-    public void setValor(Double valor) {
-        this.valor = valor;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public LocalDate getData() {
-        return data;
-    }
-
-    public void setData(LocalDate data) {
-        this.data = data;
-    }
 }

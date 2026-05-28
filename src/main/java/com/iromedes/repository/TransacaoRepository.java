@@ -2,10 +2,9 @@ package com.iromedes.financeiro.repository;
 
 import com.iromedes.financeiro.model.Transacao;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
-@Repository
 public interface TransacaoRepository extends JpaRepository<Transacao, Long> {
-    // Essa interface simples já te dá métodos como .save(), .findAll(),
-    // .deleteById()
+    // Este método permite buscar transações pelo tipo (Ex: "Day Trade")
+    List<Transacao> findByTipo(String tipo);
 }
