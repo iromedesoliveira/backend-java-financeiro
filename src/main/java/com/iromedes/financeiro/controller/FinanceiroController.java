@@ -1,15 +1,26 @@
 package com.iromedes.financeiro.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.iromedes.financeiro.model.Transacao;
+import com.iromedes.financeiro.repository.TransacaoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/financeiro")
 public class FinanceiroController {
 
+    @Autowired
+    private TransacaoRepository repository;
+
     @GetMapping
-    public String status() {
-        return "API de Gestão Financeira do Iromedes ativa!";
+    public List<Transacao> listar() {
+        return repository.findAll();
+    }
+
+    @PostMapping
+    public Transacao salvar(@RequestBody Transacao transacao) {
+        return repository.save(transacao);
     }
 }
