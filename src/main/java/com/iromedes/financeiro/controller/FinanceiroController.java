@@ -34,6 +34,19 @@ public class FinanceiroController {
     }
     // ------------------------------
 
+    // --- NOVA ROTA: Conversão Inteligente ---
+    @GetMapping("/converter/{valorEmReais}")
+    public Map<String, Object> converterParaDolar(@PathVariable Double valorEmReais) {
+        Double taxaDolar = financeiroService.getValorDolarAtual();
+        Double valorEmDolar = valorEmReais / taxaDolar;
+
+        return Map.of(
+                "valorOriginalReais", valorEmReais,
+                "taxaDolarAtual", taxaDolar,
+                "valorConvertidoDolar", valorEmDolar);
+    }
+    // ----------------------------------------
+
     @PostMapping
     public ResponseEntity<?> salvar(@Valid @RequestBody Transacao transacao) {
         Transacao transacaoSalva = repository.save(transacao);
