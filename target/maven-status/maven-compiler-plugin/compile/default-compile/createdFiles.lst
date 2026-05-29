@@ -1,0 +1,5 @@
+com\iromedes\financeiro\controller\FinanceiroController.class
+com\iromedes\financeiro\FinanceiroApplication.class
+com\iromedes\financeiro\model\Transacao.class
+com\iromedes\financeiro\service\FinanceiroService.class
+com\iromedes\financeiro\repository\TransacaoRepository.class
