@@ -1,30 +1,30 @@
-# AutoFinance Intelligence: Automação e Gestão Financeira
+# Backend Java Financeiro (API de Automação Financeira)
 
-Este projeto é uma solução de **Backend para Automação Financeira**, focada em processamento inteligente de investimentos. Ele automatiza a aplicação de estratégias financeiras (reinvestimento 30/30/40) através da integração com APIs de dados e persistência robusta em banco de dados.
+## 🚀 Sobre o Projeto
+Este projeto foi desenvolvido como uma solução robusta para o gerenciamento de finanças pessoais, focando em automação e integração de dados. O sistema vai além de um CRUD tradicional, oferecendo uma camada de inteligência que processa transações e realiza conversões de moeda em tempo real via integração com APIs externas.
 
-## 🎯 Objetivo da Automação
-O sistema foi desenhado para eliminar a necessidade de input manual, consumindo dados externos em tempo real e aplicando regras de negócio automáticas para alocação de capital em:
-- 30% Poupança
-- 30% Dividendos
-- 40% Day Trade
 
-## 🛠 Tecnologias Principais
-- **Java 21** & **Spring Boot 3**
-- **MySQL** (Persistência de dados)
-- **Hibernate/JPA** (ORM)
-- **REST API Integration** (Automação de dados)
 
-## 🏗 Arquitetura do Projeto
-O projeto segue o padrão de design focado em escalabilidade:
-* **Controller:** Camada de exposição da API.
-* **Service:** O "cérebro" que executa as regras de automação.
-* **Repository:** Camada de acesso aos dados.
-* **DTO:** Estrutura para tráfego seguro de informações.
+## 🛠 Tecnologias Utilizadas
+* **Java 21**
+* **Spring Boot 3.4.0**
+* **Spring Data JPA & Hibernate**
+* **MySQL**
+* **Jackson (Data Processing)**
+* **RestTemplate (Integração de APIs)**
 
-## 🚀 Como rodar
-1. Configure sua variável de ambiente `DB_PASSWORD` para a conexão com o MySQL.
-2. Certifique-se de que o banco de dados `financeiro_db` esteja ativo na porta `3307`.
-3. Execute o comando: `./mvnw clean spring-boot:run`
+## ⚙️ Funcionalidades de Automação
+* **Regra de Negócio 30/30/40:** O sistema processa automaticamente a alocação de qualquer transação registrada:
+    * 30% Necessidades
+    * 30% Desejos
+    * 40% Investimentos
+* **Integração em Tempo Real:** Consumo da API AwesomeAPI para cotação atualizada do Dólar (USDBRL).
+* **Conversão Inteligente:** Endpoint de processamento que converte valores de Reais para Dólares utilizando taxas em tempo real.
 
-## 📈 Status
-[EM DESENVOLVIMENTO] - Atualmente implementando integração com APIs de mercado financeiro para automação de coleta de dados.
+## 🔗 Endpoints Principais
+* `POST /api/financeiro`: Registra uma nova transação e retorna a alocação automática.
+* `GET /api/financeiro/cotacao`: Retorna a cotação atual do dólar integrada.
+* `GET /api/financeiro/converter/{valor}`: Realiza a conversão de moeda processada pelo backend.
+
+## 💡 Por que este projeto?
+Este projeto demonstra minha capacidade de separar responsabilidades, tratar dados externos com resiliência e resolver problemas reais de automação de lógica financeira.
